@@ -65,26 +65,26 @@ void update_my_window(Clock& t, const RenderWindow& window, CircleShape& circle,
 
 		if (pos_x < 0.f || pos_x + radius * 2.f >= win_sz_x)
 		{
-			angle = 180.f - angle;
+			angle = 180 - angle;
 			circle.setFillColor(Color(rand_val(0, 255), rand_val(0, 255), rand_val(0, 255)));
 		}
 
 		if (pos_y < 0.f)
 		{
-			if (roundf(angle) == 270.f || roundf(angle) == -90.f) {
-				angle = 90.f;
+			if (angle == 270 || angle == -90) {
+				angle = 90;
 			}
 			else {
-					angle = angle * 2.f + 90.f;
+					angle = angle * 2 + 90;
 			}
 			circle.setFillColor(Color(rand_val(0, 255), rand_val(0, 255), rand_val(0, 255)));
 		}
 		else if (pos_y + radius * 2.f >= win_sz_y)
 		{
-			if (roundf(angle) == 90.f || roundf(angle) == -270.f)
-				angle = 270.f;
+			if (angle == 90 || angle == -270)
+				angle = 270;
 			else {
-				angle = angle * 2.f - 90.f;
+				angle = angle * 2 - 90;
 			}
 			circle.setFillColor(Color(rand_val(0, 255), rand_val(0, 255), rand_val(0, 255)));
 		}
