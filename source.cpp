@@ -33,10 +33,6 @@ constexpr inline T to_radian(T deg) noexcept
 
 void update_my_window(Clock& t, const RenderWindow& window, CircleShape& circle, int step, int& angle)
 {
-	static int downsize = 1;		// шаг увеличения / уменьшения окружности 
-	constexpr float min_size = 10;	// минимальный размер окружности
-	constexpr float max_size = 150;	// максимальный размер окружности
-
 	static float radius = circle.getRadius();	// радиус окружности
 
 	if ((t.getElapsedTime()).asSeconds() < 0.005f) {
@@ -88,6 +84,11 @@ void update_my_window(Clock& t, const RenderWindow& window, CircleShape& circle,
 		}
 
 		circle.setFillColor(Color(rand_val(0, 255), rand_val(0, 255), rand_val(0, 255)));
+
+		static int downsize = 1;		// шаг увеличения / уменьшения окружности 
+		constexpr float min_size = 10;	// минимальный размер окружности
+		constexpr float max_size = 150;	// максимальный размер окружности
+
 
 		if (radius >= max_size || radius <= min_size) {
 			downsize *= -1;
